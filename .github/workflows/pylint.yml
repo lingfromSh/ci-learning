@@ -1,0 +1,29 @@
+name: pylint
+
+on:
+  push:
+    branches:
+      - [ main ]
+  pull_request:
+    branches:
+      - [ main ]
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+
+    steps:
+
+      - name: Setup Python
+        uses: actions/setup-python@v2.3.1
+        with:
+          python-version: 3.x
+          cache: pip
+
+      - name: Install pylint
+        run: pip install pylint
+
+      - name: Run pylint
+        run: pylint src --disable=C
