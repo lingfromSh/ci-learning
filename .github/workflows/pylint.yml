@@ -22,4 +22,4 @@ jobs:
           pip install pylint
 
       - name: Run pylint
-        run: pylint $(git ls-files '*.py') --disable=C
+        run: pylint $(git ls-files 'src/*.py') --disable=C
